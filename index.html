@@ -2,7 +2,12 @@
   <script type="module" src="dist/img-magick.umd.js"></script>
 </head>
 <body>
-  <img src="./test.png" />
-  <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
-  <img-magick src="./test.png" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"></img-magick>
+  <a href="https://github.com/f0urfingeredfish/img-magick" >Github Repo</a>
+  <div>Original:</div>
+  <code>&lt;img src="./example.jpg"&#x2F;&gt;</code>
+  <img src="./example.jpg" />
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+  <img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+  <img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"></img-magick>
 </body>

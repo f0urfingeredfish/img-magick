@@ -1,6 +1,6 @@
 // Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
-import * as Magick from './node_modules/wasm-imagemagick/dist/bundles/magickApi.js';
+import { Call } from 'wasm-imagemagick/dist/magickApi';
 
 
 class ImgMagick extends LitElement {
@@ -29,7 +29,7 @@ class ImgMagick extends LitElement {
     const content = new Uint8Array(await fetchedSourceImage.arrayBuffer());
     const file = [{'name': this.src, content}];
 
-    let processedFiles = await Magick.Call(file, [...this.cmd.split(" "), '%[filename:mysize]-%d.jpeg']);
+    let processedFiles = await Call(file, [...this.cmd.split(" "), '%[filename:mysize]-%d.jpeg']);
 
     const convertedSrc = URL.createObjectURL(processedFiles[0]['blob']);
     this.setAttribute('convertedSrc', convertedSrc);
