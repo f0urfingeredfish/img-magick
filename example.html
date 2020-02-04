@@ -1,0 +1,8 @@
+<head>
+  <script type="module" src="https://unpkg.com/img-magick/dist/img-magick.umd.js"></script>
+</head>
+<body>
+  <img src="./test.png" />
+  <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
+  <img-magick src="./test.png" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"></img-magick>
+</body>
