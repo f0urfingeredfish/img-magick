@@ -1,7 +1,7 @@
 {
   "name": "img-magick",
   "version": "1.0.0",
-  "description": "The power of ImageMagick as a Webcomponent",
+  "description": "The power of WASM-ImageMagick as a Webcomponent",
   "main": "dist/img-magick.cjs.js",
   "module": "dist/img-magick.esm.js",
   "browser": "dist/img-magick.umd.js",

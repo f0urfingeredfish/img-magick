@@ -1,7 +1,7 @@
 ## &lt;img-magick&gt;
 
- 
-A [Webcomponent](https://www.webcomponents.org/) that gives you the power of [ImageMagick](https://github.com/KnicKnic/WASM-ImageMagick) with the ease of use of the ```<img>``` tag. 
+
+A [Webcomponent](https://www.webcomponents.org/) that gives you the power of [WASM-ImageMagick](https://github.com/KnicKnic/WASM-ImageMagick) with the ease of use of the ```<img>``` tag.
 
 ### Run example
 ```
