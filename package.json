@@ -18,7 +18,7 @@
     "webcomponent",
     "imagemagick"
   ],
-  "author": "Nick Kircos",
+  "author": "Nick Kircos <nick@blackholedesign.com> (http://blackholedesign.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/f0urfingeredfish/img-magick/issues"
