@@ -5,6 +5,7 @@ A [Webcomponent](https://www.webcomponents.org/) that gives you the power of [Im
 
 ### Run example
 ```
+npm install -g polymer-cli
 npm install
 polymer serve
 ```
