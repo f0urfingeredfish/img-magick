@@ -53,7 +53,6 @@ class ImgMagick extends LitElement {
      * with the `html` helper function:
      */
     return html`
-      <p>${this.cmd}</p>
       <img src=${this.convertedSrc} />
     `;
   }

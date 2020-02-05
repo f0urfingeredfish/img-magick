@@ -1,13 +1,25 @@
 <head>
   <script type="module" src="https://unpkg.com/img-magick/dist/img-magick.umd.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <a href="https://github.com/f0urfingeredfish/img-magick" >Github Repo</a>
-  <div>Original:</div>
-  <code>&lt;img src="./example.jpg"&#x2F;&gt;</code>
+  <h1><a href="https://github.com/f0urfingeredfish/img-magick" >&lt;img-magick&gt; on Github</a></h1>
+  <h4><a href="http://blackholedesign.com/" >by Nick Kircos</a></h4>
+  <p>The power of <a href="https://imagemagick.org/">ImageMagick</a> with the ease of use of the &lt;img&gt; tag.</p>
+
   <img src="./example.jpg" />
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+  <code>&lt;img src="./example.jpg"&#x2F;&gt;</code>
+
   <img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t"&gt;&lt;img-magick&gt;</code>
+
+  <img-magick src="./example.jpg" cmd="convert * -swirl 90 -set filename:mysize %t"></img-magick>
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * -swirl 90 -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+
   <img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"></img-magick>
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t"&gt;&lt;&#x2F;img-magick&gt;</code>
+
+  <img-magick src="./example.jpg" cmd="convert * --size 94x94 xc:red -bordercolor white -border 3 -virtual-pixel tile -implode 4 -set filename:mysize %t"></img-magick>
+  <code>&lt;img-magick src="./example.jpg" cmd="convert * --size 94x94 xc:red -bordercolor white -border 3 -virtual-pixel tile -implode 4 -set filename:mysize %t""&gt;&lt;&#x2F;img-magick&gt;</code>
+
 </body>
