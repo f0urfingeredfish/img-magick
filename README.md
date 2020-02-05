@@ -2,7 +2,7 @@
 
 A [Webcomponent](https://www.webcomponents.org/) that gives you the power of [WASM-ImageMagick](https://github.com/KnicKnic/WASM-ImageMagick) with the ease of use of the ```<img>``` tag.
 
-[Demo](https://f0urfingeredfish.github.io/img-magick/example.html)
+[Demo](https://f0urfingeredfish.github.io/img-magick/)
 
 ### Run example
 ```
