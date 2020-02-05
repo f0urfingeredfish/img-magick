@@ -2,7 +2,8 @@
 
 A [Webcomponent](https://www.webcomponents.org/) that gives you the power of [WASM-ImageMagick](https://github.com/KnicKnic/WASM-ImageMagick) with the ease of use of the ```<img>``` tag.
 
-[Demo](https://f0urfingeredfish.github.io/img-magick/)
+[Live Demo](https://f0urfingeredfish.github.io/img-magick/) Edit the attributes with your dev tools to see live updates!
+
 
 ### Install
 ```
@@ -28,6 +29,8 @@ Add component to appliction or page:
 ```html
  <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
 ```
+Results:
+![image](https://user-images.githubusercontent.com/399068/73820158-5853f400-47ae-11ea-980e-62a94b30c801.png)
 
 ### Attributes
 
