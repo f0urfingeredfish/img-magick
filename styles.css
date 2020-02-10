@@ -1,10 +1,10 @@
 body {
-    text-align: center;
-    padding: 20px;
-    background-color: black;
-    color: white;
-    font-size: 1.5em;
-    font-family: Geneva, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  font-family: Geneva, sans-serif;
 }
 code {
   box-sizing: border-box;
@@ -17,13 +17,12 @@ code {
   margin-top: 0px;
 }
 
-img-magick {
-    display: block;
-}
-
 a {
   color: #dab174;
 }
 a:hover {
   color: #f3c27b;
+}
+img {
+  width: 100%;
 }
