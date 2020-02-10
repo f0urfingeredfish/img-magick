@@ -1,61 +1,105 @@
 // Import the LitElement base class and html helper function
-import { LitElement, html } from 'lit-element';
-import { Call } from 'wasm-imagemagick/dist/magickApi';
-
+import { LitElement, html, css } from "lit-element"
+import { Call } from "wasm-imagemagick/dist/magickApi"
 
 class ImgMagick extends LitElement {
+  static get properties() {
+    return {
+      cmd: { reflect: true },
+      src: { reflect: true },
+      convertedSrc: { reflect: true },
+      showLoader: { type: Boolean, reflect: true },
+      loaderColor: { reflect: true },
+      loaderSize: { reflect: true },
+    }
+  }
 
-  static get properties() { return {
-    cmd: { reflect: true },
-    src: { reflect: true },
-    convertedSrc: { reflect: true },
-  };}
+  static get styles() {
+    return css`
+      img {
+        width: 100%;
+      }
+    `
+  }
 
   constructor() {
-    super();
-    this.cmd='';
-    this.convertedSrc='';
+    super()
+    this.cmd = ""
+    this.src = ""
+    this.convertedSrc = ""
+    this.showLoader = false
+    this.loaderColor = "#606060"
+    this.loaderSize = "25px"
   }
 
   attributeChangedCallback(name, oldval, newval) {
-    super.attributeChangedCallback(name, oldval, newval);
-    if (name ==='cmd' || name === 'src') {
-      this.convertImage();
+    super.attributeChangedCallback(name, oldval, newval)
+    if (name === "cmd" || name === "src") {
+      this.convertImage()
     }
   }
 
   async convertImage() {
-    const fetchedSourceImage = await fetch(this.src);
-    const content = new Uint8Array(await fetchedSourceImage.arrayBuffer());
-    const file = [{'name': this.src, content}];
+    const fetchedSourceImage = await fetch(this.src)
+    const content = new Uint8Array(await fetchedSourceImage.arrayBuffer())
+    const file = [{ name: this.src, content }]
 
-    let processedFiles = await Call(file, [...this.cmd.split(" "), '%[filename:mysize]-%d.jpeg']);
-
-    const convertedSrc = URL.createObjectURL(processedFiles[0]['blob']);
-    this.setAttribute('convertedSrc', convertedSrc);
+    let processedFiles = await Call(file, [
+      ...this.cmd.split(" "),
+      "%[filename:mysize]-%d.jpeg"
+    ])
+    if (this.convertedSrc) {
+      // If old convertedSrc clean up memory
+      URL.revokeObjectURL(this.convertedSrc)
+    }
+    const convertedSrc = URL.createObjectURL(processedFiles[0]["blob"])
+    this.setAttribute("convertedSrc", convertedSrc)
   }
 
   async connectedCallback() {
-    super.connectedCallback();
-    this.convertImage();
+    super.connectedCallback()
+    this.convertImage()
   }
-  /**
-   * Implement `render` to define a template for your element.
-   *
-   * You must provide an implementation of `render` for any element
-   * that uses LitElement as a base class.
-   */
-  render(){
-    /**
-     * `render` must return a lit-html `TemplateResult`.
-     *
-     * To create a `TemplateResult`, tag a JavaScript template literal
-     * with the `html` helper function:
-     */
-    return html`
-      <img src=${this.convertedSrc} />
-    `;
+
+  render() {
+    if (this.convertedSrc) {
+      return html`
+        <img src=${this.convertedSrc} />
+      `
+    }
+    if (this.showLoader) {
+      return html`
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          style="margin: auto; display: block; shape-rendering: auto;"
+          width="${this.loaderSize}"
+          height="${this.loaderSize}"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
+          <g transform="translate(50 50)">
+            <g transform="rotate(36.4446)">
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                values="0;45"
+                keyTimes="0;1"
+                dur="0.5s"
+                repeatCount="indefinite"
+              ></animateTransform>
+              <path
+                d="M29.491524206117255 -5.5 L37.491524206117255 -5.5 L37.491524206117255 5.5 L29.491524206117255 5.5 A30 30 0 0 1 24.742744050198738 16.964569457146712 L24.742744050198738 16.964569457146712 L30.399598299691117 22.621423706639092 L22.621423706639096 30.399598299691114 L16.964569457146716 24.742744050198734 A30 30 0 0 1 5.5 29.491524206117255 L5.5 29.491524206117255 L5.5 37.491524206117255 L-5.499999999999997 37.491524206117255 L-5.499999999999997 29.491524206117255 A30 30 0 0 1 -16.964569457146705 24.742744050198738 L-16.964569457146705 24.742744050198738 L-22.621423706639085 30.399598299691117 L-30.399598299691117 22.621423706639092 L-24.742744050198738 16.964569457146712 A30 30 0 0 1 -29.491524206117255 5.500000000000009 L-29.491524206117255 5.500000000000009 L-37.491524206117255 5.50000000000001 L-37.491524206117255 -5.500000000000001 L-29.491524206117255 -5.500000000000002 A30 30 0 0 1 -24.742744050198738 -16.964569457146705 L-24.742744050198738 -16.964569457146705 L-30.399598299691117 -22.621423706639085 L-22.621423706639092 -30.399598299691117 L-16.964569457146712 -24.742744050198738 A30 30 0 0 1 -5.500000000000011 -29.491524206117255 L-5.500000000000011 -29.491524206117255 L-5.500000000000012 -37.491524206117255 L5.499999999999998 -37.491524206117255 L5.5 -29.491524206117255 A30 30 0 0 1 16.964569457146702 -24.74274405019874 L16.964569457146702 -24.74274405019874 L22.62142370663908 -30.39959829969112 L30.399598299691117 -22.6214237066391 L24.742744050198738 -16.964569457146716 A30 30 0 0 1 29.491524206117255 -5.500000000000013 M0 -20A20 20 0 1 0 0 20 A20 20 0 1 0 0 -20"
+                fill="${this.loaderColor}"
+              ></path>
+            </g>
+          </g>
+          <!-- [ldio] generated by https://loading.io/ -->
+        </svg>
+      `
+    }
+    return html``
   }
 }
 // Register the new element with the browser.
-customElements.define('img-magick', ImgMagick);
+customElements.define("img-magick", ImgMagick)

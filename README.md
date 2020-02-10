@@ -34,11 +34,18 @@ Results:
 
 ### Attributes
 
-|Attributes|Description|
-|---|---|
-|`cmd`|Any [ImageMagick command](https://imagemagick.org/script/convert.php)|
-|`src`|Image URL|
+|Attributes|Description|Default|
+|---|---|---|
+|`cmd`|Any [ImageMagick command](https://imagemagick.org/script/convert.php)| "" |
+|`src`|Image URL| "" |
+|`showLoader`|Show the loading spinner when processing| false |
+|`loaderColor`|Color of the loading indicator| #606060 |
+|`loaderSize`|Size of the loader| 25px |
 
+Example with custom loading indicator:
+```html
+ <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t" showLoader loaderSize="100px" loaderColor="red"></img-magick>
+```
 
 ## For development
 
