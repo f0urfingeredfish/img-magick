@@ -13,7 +13,7 @@ npm i img-magick
 ### Usage
 In a Javascript module
 ```js
-import 'some-package-name';
+import 'img-magick';
 ```
 
 In html page:
