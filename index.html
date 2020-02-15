@@ -1,25 +1,64 @@
-<head>
-  <script type="module" src="https://unpkg.com/img-magick/dist/img-magick.umd.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <h1><a href="https://github.com/f0urfingeredfish/img-magick" >&lt;img-magick&gt; on Github</a></h1>
-  <h4><a href="http://blackholedesign.com/" >by Nick Kircos</a></h4>
-  <p>The power of <a href="https://imagemagick.org/">ImageMagick</a> with the ease of use of the &lt;img&gt; tag.</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;img-magick&gt; by Nick Kircos</title>
+    <script
+      src="https://unpkg.com/img-magick/dist/img-magick.umd.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>
+      <a href="https://github.com/f0urfingeredfish/img-magick"
+        >&lt;img-magick&gt; on Github</a
+      >
+    </h1>
+    <h4><a href="http://blackholedesign.com/">by Nick Kircos</a></h4>
+    <p>
+      The power of <a href="https://imagemagick.org/">ImageMagick</a> with the
+      ease of use of the &lt;img&gt; tag.
+    </p>
 
-  <img src="./example.jpg" />
-  <code>&lt;img src="./example.jpg"&#x2F;&gt;</code>
+    <img src="./example.jpg" />
+    <code>&lt;img src="./example.jpg"&#x2F;&gt;</code>
 
-  <img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t" showLoader></img-magick>
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * -paint 3 -set filename:mysize %t" showLoader&gt;&lt;img-magick&gt;</code>
+    <img-magick
+      src="./example.jpg"
+      cmd="convert * -paint 5"
+      showloader
+    ></img-magick>
+    <code
+      >&lt;img-magick src="./example.jpg" cmd="convert * -paint 5"
+      showloader&gt;&lt;img-magick&gt;</code
+    >
+    <img-magick
+      src="./example.jpg"
+      cmd="convert * -swirl 90"
+      showloader
+    ></img-magick>
+    <code
+      >&lt;img-magick src="./example.jpg" cmd="convert * -swirl 90" showloader
+      &gt;&lt;&#x2F;img-magick&gt;</code
+    >
 
-  <img-magick src="./example.jpg" cmd="convert * -swirl 90 -set filename:mysize %t" showLoader></img-magick>
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * -swirl 90 -set filename:mysize %t" showLoader &gt;&lt;&#x2F;img-magick&gt;</code>
-
-  <img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t" showLoader></img-magick>
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * -colorspace Gray  -edge 1 -negate -set filename:mysize %t" showLoader&gt;&lt;&#x2F;img-magick&gt;</code>
-
-  <img-magick src="./example.jpg" cmd="convert * --size 94x94 xc:red -bordercolor white -border 3 -virtual-pixel tile -implode 4 -set filename:mysize %t"  showLoader></img-magick>
-  <code>&lt;img-magick src="./example.jpg" cmd="convert * --size 94x94 xc:red -bordercolor white -border 3 -virtual-pixel tile -implode 4 -set filename:mysize %t" showLoader &gt;&lt;&#x2F;img-magick&gt;</code>
-
-</body>
+    <img-magick
+      src="./example.jpg"
+      cmd="convert * -colorspace Gray  -edge 2 -negate"
+      showloader
+    ></img-magick>
+    <code
+      >&lt;img-magick src="./example.jpg" cmd="convert * -colorspace Gray -edge
+      2 -negate" showloader&gt;&lt;&#x2F;img-magick&gt;</code
+    >
+    <img-magick
+      src="./example.jpg"
+      cmd="convert * -virtual-pixel tile -implode 4"
+      showloader
+    ></img-magick>
+    <code
+      >&lt;img-magick src="./example.jpg" cmd="convert * -virtual-pixel tile
+      -implode 4" showloader &gt;&lt;&#x2F;img-magick&gt;</code
+    >
+  </body>
+</html>

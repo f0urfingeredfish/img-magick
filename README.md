@@ -1,4 +1,16 @@
-## &lt;img-magick&gt;
+# &lt;img-magick&gt;
+<a href="LICENSE">
+  <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software License" />
+</a>
+<a href="https://github.com/f0urfingeredfish/img-magick/issues">
+  <img src="https://img.shields.io/github/issues/f0urfingeredfish/img-magick.svg" alt="Issues" />
+</a>
+<a href="https://npmjs.org/package/img-magick">
+  <img src="https://img.shields.io/npm/v/img-magick.svg?style=flat-squar" alt="NPM" />
+</a>
+<a href="https://github.com/f0urfingeredfish/img-magick/releases">
+  <img src="https://img.shields.io/github/release/f0urfingeredfish/img-magick.svg" alt="Latest Version" />
+</a>
 
 A [Web Component](https://www.webcomponents.org/) that gives you the power of [WASM-ImageMagick](https://github.com/KnicKnic/WASM-ImageMagick) with the ease of use of the ```<img>``` tag.
 
@@ -8,12 +20,12 @@ A [Web Component](https://www.webcomponents.org/) that gives you the power of [W
   <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix this" height="33">
 </a>
 
-### Install
+# Install
 ```
 npm i img-magick
 ```
 
-### Usage
+# Usage
 In a Javascript module
 ```js
 import 'img-magick';
@@ -30,7 +42,7 @@ or
 
 Add component to appliction or page:
 ```html
- <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t"></img-magick>
+ <img-magick src="./test.png" cmd="convert * -paint 3"></img-magick>
 ```
 Results:
 ![image](https://user-images.githubusercontent.com/399068/73820158-5853f400-47ae-11ea-980e-62a94b30c801.png)
@@ -45,20 +57,16 @@ Results:
 |`loaderColor`|Color of the loading indicator| #606060 |
 |`loaderSize`|Size of the loader| 25px |
 
-Example with custom loading indicator:
+#### Example with custom loading indicator:
 ```html
- <img-magick src="./test.png" cmd="convert * -paint 3 -set filename:mysize %t" showLoader loaderSize="100px" loaderColor="red"></img-magick>
+ <img-magick src="./test.png" cmd="convert * -paint 3" showLoader loaderSize="100px" loaderColor="red"></img-magick>
 ```
 
-## For development
+# Development
 
-### Run polymer server
+### Run dev server with hot reloading
 ```
-npm install -g polymer-cli && npm install && polymer serve
+npm start
 ```
-### Start dev server
-```
-npm run dev
-```
-Goto http://127.0.0.1:8081/components/img-magick/dev.html
+
 

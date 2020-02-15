@@ -2,7 +2,10 @@ import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import pkg from "./package.json"
 import copy from "rollup-plugin-copy"
-
+import serve from 'rollup-plugin-serve'
+import livereload from 'rollup-plugin-livereload'
+// Are we in dev mode
+const dev = process.env.ROLLUP_WATCH
 export default [
   // browser-friendly UMD build
   {
@@ -25,7 +28,13 @@ export default [
             dest: "dist"
           }
         ]
-      })
+      }),
+      dev && serve({
+        open: true,
+        openPage: '/dev.html',
+        contentBase: '',
+      }),
+      dev && livereload()
     ]
   },
 
